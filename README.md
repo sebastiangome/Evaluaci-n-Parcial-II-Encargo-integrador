@@ -1,4 +1,4 @@
-# Evaluaci-n-Parcial-II-Encargo-integrador# StreamView Analytics – Catálogo de Películas y Series
+StreamView Analytics – Catálogo de Películas y Series
 
 Proyecto de la asignatura **ADY1104 – Visualización de Datos** (DuocUC).
 Análisis exploratorio y dashboard interactivo del catálogo de contenidos de una plataforma de streaming (películas y series, datos hasta 2025).
