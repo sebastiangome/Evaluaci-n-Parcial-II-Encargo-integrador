@@ -5,6 +5,7 @@ Análisis exploratorio y dashboard interactivo del catálogo de contenidos de un
 
 **Integrantes:** _[completar nombres del grupo]_
 **Docente:** Alicia Ramos
+**Ejecutar en Google Colab:** [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebastiangome/Evaluaci-n-Parcial-II-Encargo-integrador/blob/main/StreamView_Analytics_proyecto/proj/notebooks/EP2_Encargo_StreamView_corregido.ipynb)
 **Dashboard (Looker Studio):** _[pegar enlace; permiso "cualquier persona con el enlace puede ver"]_
 
 ---
@@ -18,10 +19,13 @@ Entender cómo está compuesto el catálogo (volumen, géneros, países, idiomas
 ## 2. Estructura del proyecto
 
 ```
-├── data/          # CSV originales y datos limpios (catalogo_clean_dashboard.csv, kpis_generales.csv)
+├── data/
+│   ├── raw/       # CSV originales (movies y tv_shows)
+│   ├── catalogo_clean_dashboard.csv
+│   └── kpis_generales.csv
 ├── notebooks/     # EP2_Encargo_StreamView_corregido.ipynb (calidad, limpieza, KPIs, EDA, exportación)
 ├── dashboard/     # Capturas / referencia del dashboard de Looker Studio
-├── images/        # Gráficos e imágenes usadas en informe, resumen e infografía
+├── images/        # Gráficos (generados por la sección 10 del notebook) e imágenes usadas en informe, resumen e infografía
 ├── src/           # Código auxiliar (si aplica)
 └── README.md
 ```
@@ -33,7 +37,7 @@ Entender cómo está compuesto el catálogo (volumen, géneros, países, idiomas
 | `netflix_movies_detailed_up_to_2025.csv` | Películas | 16.000 × 18 |
 | `netflix_tv_shows_detailed_up_to_2025.csv` | Series | 16.000 × 16 |
 
-Ambos archivos están en `data/`. El notebook los lee con rutas relativas (`../data/`), por lo que se ejecuta desde `notebooks/` sin modificaciones.
+Ambos archivos están en `data/raw/`. Si no se encuentran localmente (por ejemplo, al abrir el notebook en Colab desde GitHub), el notebook los **descarga automáticamente** desde este repositorio.
 
 ## 4. Cómo reproducir
 
@@ -41,7 +45,8 @@ Ambos archivos están en `data/`. El notebook los lee con rutas relativas (`../d
    ```bash
    pip install pandas numpy matplotlib seaborn jupyter
    ```
-2. Abrir `notebooks/EP2_Encargo_StreamView_corregido.ipynb` y ejecutar todas las celdas (o `cd notebooks && jupyter nbconvert --to notebook --execute --inplace EP2_Encargo_StreamView_corregido.ipynb`).
+2. Abrir `notebooks/EP2_Encargo_StreamView_corregido.ipynb` y ejecutar todas las celdas. La primera celda de configuración detecta si se está en Colab o en local y descarga los CSV si faltan.
+3. **En Colab:** usar el botón "Abrir en Colab" de arriba y ejecutar todo; no hay que subir archivos. Los resultados quedan en `/content/data` y `/content/images` (descargarlos desde el panel de archivos).
 4. Salidas generadas:
    - `data/catalogo_clean_dashboard.csv` → 31.991 filas × 20 columnas (fuente del dashboard).
    - `data/kpis_generales.csv` → KPIs generales.
